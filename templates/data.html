@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+{% block content %}
+{% if user.is_staff %}
+<h1>Here you can generate data from other files into your database</h1>
+<form action="" method="POST" enctype="multipart/form-data">
+    {% csrf_token %}
+    {{form}}
+    <br>
+    <button type="submit" class="btn btn-primary btn-lg" style="margin: 0px 0px 20px 0px">Generate</button>
+
+</form>
+<br>
+<h4>Users saved in our database:</h4> 
+<ul>
+    {% for user in users %}
+      
+      <li>{{user.username}}</li>
+    {% endfor %}
+{%else%}
+<h1>Sorry, you do not have permissions to upload data into database</h1>
+{%endif%}
+{% endblock  %}

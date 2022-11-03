@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+{% block content %}
+{% if user.is_authenticated %}
+<div style="margin: auto; width: 50%; padding: 10px">
+<p style="font-size: 60px">Welcome, {{ user.get_username }}. Thanks for logging in.</p>
+</div>
+{% else %}
+<div style="margin: auto; width: 50%; padding: 10px">
+<p style="font-size: 60px">Welcome, new user. Please log in.</p>
+</div>
+{% endif %}     
+
+{% endblock  %}
+
+
